@@ -15,5 +15,8 @@
     "dotenv": "^16.0.1",
     "ffmpeg-static": "^5.0.2",
     "ytdl-core": "^4.11.0"
+  },
+  "devDependencies": {
+    "@types/dotenv": "^8.2.0"
   }
 }

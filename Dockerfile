@@ -4,7 +4,7 @@ COPY . /app
 
 WORKDIR /app
 
-#CMD ./docker.sh
-RUN npm install dotenv discord.js axios ytdl-core @discordjs/voice ffmpeg-static
+RUN npm install
+RUN node deploy-commands.js
 
 CMD node index.js

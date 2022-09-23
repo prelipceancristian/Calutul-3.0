@@ -1,19 +1,24 @@
 require('dotenv').config();
 
-const { Client, Intents } = require('discord.js');
-//const MusicController = require('./Modules/MusicController');
-
-const client = new Client({
-    intents: [
-        Intents.FLAGS.GUILDS,
-        Intents.FLAGS.GUILD_MESSAGES,
-        Intents.FLAGS.GUILD_VOICE_STATES
-    ]
-});
+const client = require('./CalutulClient').GetClient()
 
 client.on('ready', () => {
     //connect to db
     console.log('Ready!');
 });
+
+client.on('interactionCreate', async interaction =>{
+    if (!interaction.isChatInputCommand()) return;
+
+	const command = interaction.client.commands.get(interaction.commandName);
+	if (!command) return;
+
+	try {
+		await command.execute(interaction);
+	} catch (error) {
+		console.error(error);
+		await interaction.reply({ content: 'There was an error while executing this command!', ephemeral: true });
+	}
+})
 
 client.login(process.env.TOKEN);

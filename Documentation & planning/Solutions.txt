@@ -1,0 +1,7 @@
+Youtube player
+1. The user uses the !play command
+2. The system checks if the command format is valid. If not, the system replies with an error message
+3. The system adds the song to the queue
+4. If the bot is not connected to the voice channel, the bot connects
+
+5. On finishing the song, the 

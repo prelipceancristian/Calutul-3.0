@@ -1,0 +1,27 @@
+Calutul-Bot Functionalitites
+
+1. Youtube player
+	Description: 
+		The bot should recieve a link to a piece of media or a query and then play the corresponding youtube video audio in the voice channel.
+		This will create a queue when adding more   
+		The bot should also be able to search for the lyrics of the current song and display them in a text channel.
+
+	Media links:
+		- youtube links (single video, playlists)
+		- spotify links (single song,  playlists)
+		- search terms (used to search youtube)
+		- (optional) soundcloud links
+
+	Lyrics:
+		Command can be used to search for lyrics to any song by giving the song title and author.
+		If used without options, it will search lyrics for the currently playing song.
+		If no lyrics are found, display an error message.
+		When found, display the first found result. In the future this could be solved by giving a list of possible lyrics and using a reaction system for that.
+
+2. Configurable soundbite player
+3. Server economy
+4. Server quests
+5. A clear error system
+6. Embed messages
+
+

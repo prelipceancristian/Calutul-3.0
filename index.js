@@ -1,24 +1,9 @@
 require('dotenv').config();
 
-const client = require('./CalutulClient').GetClient()
+const client = require('./client/CalutulClient').GetClient()
+const clientEventHandler = require('./client/ClientEventHandler')
 
-client.on('ready', () => {
-    //connect to db
-    console.log('Ready!');
-});
-
-client.on('interactionCreate', async interaction =>{
-    if (!interaction.isChatInputCommand()) return;
-
-	const command = interaction.client.commands.get(interaction.commandName);
-	if (!command) return;
-
-	try {
-		await command.execute(interaction);
-	} catch (error) {
-		console.error(error);
-		await interaction.reply({ content: 'There was an error while executing this command!', ephemeral: true });
-	}
-})
+client.on('ready', clientEventHandler.HandleClientOnReady);
+client.on('interactionCreate', clientEventHandler.HandleClientOnInteractionCreate)
 
 client.login(process.env.TOKEN);
